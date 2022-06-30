@@ -740,21 +740,23 @@ abstract class StackRouter extends RoutingController {
     String fragment = '',
     bool includeAncestors = false,
   }) {
-    for (var index = 0; index < _pages.length; index++) {
-      final data = _pages[index].routeData;
-      final route = data.route;
-      data._updateRoute(route.copyWith(
-        queryParams: Parameters(queryParams),
-        fragment: fragment,
-      ));
-    }
-    if (includeAncestors && _parent != null) {
-      _parent!._updateSharedPathData(
-        queryParams: queryParams,
-        fragment: fragment,
-        includeAncestors: includeAncestors,
-      );
-    }
+    // Don't allow Stack router to override routes in stack with top routes query params
+    return; 
+    // for (var index = 0; index < _pages.length; index++) {
+    //   final data = _pages[index].routeData;
+    //   final route = data.route;
+    //   data._updateRoute(route.copyWith(
+    //     queryParams: Parameters(queryParams),
+    //     fragment: fragment,
+    //   ));
+    // }
+    // if (includeAncestors && _parent != null) {
+    //   _parent!._updateSharedPathData(
+    //     queryParams: queryParams,
+    //     fragment: fragment,
+    //     includeAncestors: includeAncestors,
+    //   );
+    // }
   }
 
   @override
