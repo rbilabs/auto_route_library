@@ -18,7 +18,7 @@ dependencies:
   args: ^2.3.1
   auto_route:
     git:
-      url: https://github.com/jturak-rbi/auto_route_library.git
+      url: https://github.com/rbilabs/auto_route_library.git
       path: ./auto_route
 #    path: ../auto_route
 
